@@ -1,4 +1,6 @@
+--upgrade pip
 streamlit
-scikit-learn==1.2.2  # Example version
+scikit-learn==1.2.2
+Cython
 numpy
 pandas
