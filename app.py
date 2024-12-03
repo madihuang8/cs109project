@@ -88,10 +88,19 @@ st.write("""
 """)
 
 import pickle
+import os
+import streamlit as st
 
 model_path = "logistic_regression_model.pkl"
-with open(model_path, "rb") as file:
-    model = pickle.load(file)
+
+try:
+    with open(model_path, "rb") as file:
+        model = pickle.load(file)
+    st.write("Model loaded successfully!")
+except FileNotFoundError:
+    st.error(f"Model file '{model_path}' not found. Please check the file location.")
+except Exception as e:
+    st.error(f"An error occurred while loading the model: {e}")
 # Path to the logistic regression model
 
 #model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
