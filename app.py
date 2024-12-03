@@ -89,16 +89,9 @@ st.write("""
 
 import pickle
 
-# Use a relative path to load the model
-model_path = "logistic_regression_model.pkl"  # Ensure the file name matches exactly
-
-# Load the model
-try:
-    with open(model_path, "rb") as file:
-        model = pickle.load(file)
-    print("Model loaded successfully.")
-except FileNotFoundError:
-    print(f"Model file '{model_path}' not found. Please check the file location.")
+model_path = "logistic_regression_model.pkl"
+with open(model_path, "rb") as file:
+    model = pickle.load(file)
 # Path to the logistic regression model
 
 #model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
