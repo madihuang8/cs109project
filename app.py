@@ -87,18 +87,31 @@ st.write("""
 - Refresh to restart!
 """)
 
+import pickle
+
+# Use a relative path to load the model
+model_path = "logistic_regression_model.pkl"  # Ensure the file name matches exactly
+
+# Load the model
+try:
+    with open(model_path, "rb") as file:
+        model = pickle.load(file)
+    print("Model loaded successfully.")
+except FileNotFoundError:
+    print(f"Model file '{model_path}' not found. Please check the file location.")
 # Path to the logistic regression model
-model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
+
+#model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
 
 # Load the logistic regression model
-try:
-    with open(model_path, 'rb') as file:
-        model = pickle.load(file)
-    st.write("Model loaded successfully!")
-except FileNotFoundError:
-    st.error(f"Model file '{model_path}' not found. Please ensure the file is in the correct directory.")
-except Exception as e:
-    st.error(f"An error occurred while loading the model: {e}")
+#try:
+#    with open(model_path, 'rb') as file:
+ #       model = pickle.load(file)
+ #   st.write("Model loaded successfully!")
+#except FileNotFoundError:
+#    st.error(f"Model file '{model_path}' not found. Please ensure the file is in the correct directory.")
+#except Exception as e:
+  #  st.error(f"An error occurred while loading the model: {e}")
 
 # Title and description
 st.title("Prostate Cancer Progression Tracker")
