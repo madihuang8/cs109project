@@ -58,11 +58,13 @@ Here are some examples from the test set you can try inputting (these numbers ar
         - Date: 12/01/23
         - PSA: 6.89
         - Volume: 70
+        - Gleason Grade: 1
     - Measurement Set 2:
         - Age: 55
         - Date: 12/01/24
         - PSA: 9.4
         - Volume: 70
+        - Gleason Grade: 1
     - **Outcome**: Censored
 
 - **Patient 285**:
@@ -71,11 +73,13 @@ Here are some examples from the test set you can try inputting (these numbers ar
         - Date: 6/20/23
         - PSA: 6.1
         - Volume: 144.0
+        - Gleason Grade: 1
     - Measurement Set 2:
         - Age: 61
-        - Date: 12/20/24
+        - Date: 12/20/23
         - PSA: 5.4
         - Volume: 144.0
+        - Gleason Grade: 1
     - **Outcome**: Reclassified
 """)
 
@@ -93,27 +97,27 @@ import streamlit as st
 
 model_path = "logistic_regression_model.pkl"
 
+#try:
+#    with open(model_path, "rb") as file:
+#        model = pickle.load(file)
+#    st.write("Model loaded successfully!")
+#except FileNotFoundError:
+#    st.error(f"Model file '{model_path}' not found. Please check the file location.")
+#except Exception as e:
+#    st.error(f"An error occurred while loading the model: {e}")
+# Path to the logistic regression model
+
+model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
+
+# Load the logistic regression model
 try:
-    with open(model_path, "rb") as file:
+    with open(model_path, 'rb') as file:
         model = pickle.load(file)
     st.write("Model loaded successfully!")
 except FileNotFoundError:
-    st.error(f"Model file '{model_path}' not found. Please check the file location.")
+    st.error(f"Model file '{model_path}' not found. Please ensure the file is in the correct directory.")
 except Exception as e:
     st.error(f"An error occurred while loading the model: {e}")
-# Path to the logistic regression model
-
-#model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
-
-# Load the logistic regression model
-#try:
-#    with open(model_path, 'rb') as file:
- #       model = pickle.load(file)
- #   st.write("Model loaded successfully!")
-#except FileNotFoundError:
-#    st.error(f"Model file '{model_path}' not found. Please ensure the file is in the correct directory.")
-#except Exception as e:
-  #  st.error(f"An error occurred while loading the model: {e}")
 
 # Title and description
 st.title("Prostate Cancer Progression Tracker")
