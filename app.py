@@ -107,7 +107,7 @@ model_path = "logistic_regression_model.pkl"
 #    st.error(f"An error occurred while loading the model: {e}")
 # Path to the logistic regression model
 
-model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
+#model_path = '/Users/madisonhuang/Documents/crest/data/logistic_regression_model.pkl'
 
 # Load the logistic regression model
 try:
